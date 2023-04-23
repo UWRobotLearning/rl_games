@@ -36,7 +36,7 @@ setup(name='rl-games',
       install_requires=[
             # this setup is only for pytorch
             # 
-            'gym>=0.17.2',
+            'slimgym',
             'torch>=1.7.0',
             'numpy>=1.16.0',
             'tensorboard>=1.14.0',

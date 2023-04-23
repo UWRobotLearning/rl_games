@@ -1,9 +1,8 @@
 import numpy as np
 import random
-import gym
+import slimgym as gym
 import torch
 from rl_games.common.segment_tree import SumSegmentTree, MinSegmentTree
-import torch
 
 from rl_games.algos_torch.torch_ext import numpy_to_torch_dtype_dict
 
@@ -305,6 +304,8 @@ class ExperienceBuffer:
         self.is_continuous = False
         self.obs_base_shape = (self.horizon_length, self.num_agents * self.num_actors)
         self.state_base_shape = (self.horizon_length, self.num_actors)
+
+
         if type(self.action_space) is gym.spaces.Discrete:
             self.actions_shape = ()
             self.actions_num = self.action_space.n
@@ -317,6 +318,11 @@ class ExperienceBuffer:
             self.actions_shape = (self.action_space.shape[0],) 
             self.actions_num = self.action_space.shape[0]
             self.is_continuous = True
+
+        self.actions_shape = (self.action_space.shape[0],) 
+        self.actions_num = self.action_space.shape[0]
+        self.is_continuous = True
+
         self.tensor_dict = {}
         self._init_from_env_info(self.env_info)
 
@@ -333,6 +339,7 @@ class ExperienceBuffer:
             self.tensor_dict['states'] = self._create_tensor_from_space(env_info['state_space'], state_base_shape)
         
         val_space = gym.spaces.Box(low=0, high=1,shape=(env_info.get('value_size',1),))
+
         self.tensor_dict['rewards'] = self._create_tensor_from_space(val_space, obs_base_shape)
         self.tensor_dict['values'] = self._create_tensor_from_space(val_space, obs_base_shape)
         self.tensor_dict['neglogpacs'] = self._create_tensor_from_space(gym.spaces.Box(low=0, high=1,shape=(), dtype=np.float32), obs_base_shape)

@@ -1,11 +1,11 @@
 import rl_games.envs.test
 from rl_games.common import wrappers
 from rl_games.common import tr_helpers
-from rl_games.envs.brax import create_brax_env
-from rl_games.envs.envpool import create_envpool
-from rl_games.envs.cule import create_cule
-import gym
-from gym.wrappers import FlattenObservation, FilterObservation
+#from rl_games.envs.brax import create_brax_env
+#from rl_games.envs.envpool import create_envpool
+#from rl_games.envs.cule import create_cule
+import slimgym as gym
+from slimgym.wrappers import FlattenObservation, FilterObservation
 import numpy as np
 import math
 

@@ -1,5 +1,5 @@
 import time
-import gym
+import slimgym as gym
 import numpy as np
 import torch
 import copy

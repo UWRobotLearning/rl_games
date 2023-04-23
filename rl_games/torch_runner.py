@@ -5,7 +5,7 @@ import random
 from copy import deepcopy
 import torch
 #import yaml
-from gym import Env
+import slimgym as gym
 from typing import Optional, Dict
 from dataclasses import asdict
 
@@ -20,7 +20,6 @@ from rl_games.common.algo_observer import DefaultAlgoObserver
 from rl_games.algos_torch import sac_agent
 
 from rl_games.configs.definitions import RunnerConfig, AlgorithmConfig, PolicyConfig
-
 
 def _restore(agent, args):
     if 'checkpoint' in args and args['checkpoint'] is not None and args['checkpoint'] !='':
@@ -39,7 +38,7 @@ def _override_sigma(agent, args):
 
 class Runner:
     def __init__(self,
-        env: Optional[Env] = None,
+        env: Optional[gym.Env] = None,
         runner_cfg: Optional[RunnerConfig] = None,
         algorithm_cfg: Optional[AlgorithmConfig] = None,
         policy_cfg: Optional[PolicyConfig] = None,

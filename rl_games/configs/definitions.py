@@ -63,7 +63,7 @@ class MLPConfig():
 @dataclass(frozen=True)
 class NetworkConfig():
     name: str = "actor_critic"
-    separate: bool = False
+    separate: bool = False 
     space: SpaceConfig = SpaceConfig()
     mlp: MLPConfig = MLPConfig()
 

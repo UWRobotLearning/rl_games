@@ -114,4 +114,7 @@ venv.bak/
 # pycharm
 /.idea
 
+#vim
+*.sw*
+
 MUJOCO_LOG.TXT

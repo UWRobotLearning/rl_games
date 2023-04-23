@@ -2,7 +2,7 @@ import os
 import torch
 from torch import nn
 import torch.distributed as dist
-import gym
+import slimgym as gym
 import numpy as np
 from rl_games.algos_torch import torch_ext
 from rl_games.algos_torch.running_mean_std import RunningMeanStd, RunningMeanStdObs
