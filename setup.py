@@ -45,6 +45,6 @@ setup(name='rl-games',
             'psutil',
             'pyyaml'
             # Optional dependencies
-            # 'ray>=1.1.0',
+            'ray>=1.1.0',
       ],
       )
